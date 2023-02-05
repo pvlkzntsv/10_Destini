@@ -48,6 +48,15 @@ struct StoryBrain {
         return story[currentStory].title
     }
     
+    
+    func getChoice1() -> String {
+        return story[currentStory].choice1
+    }
+    
+    func getChoice2() -> String {
+        return story[currentStory].choice2
+    }
+    
 //    func nextStory(choice : String) -> Int {
 //
 //        if choice == story[currentStory].choice1 {
