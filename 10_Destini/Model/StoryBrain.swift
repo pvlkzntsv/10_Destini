@@ -48,7 +48,6 @@ struct StoryBrain {
         return story[currentStory].title
     }
     
-    
     func getChoice1() -> String {
         return story[currentStory].choice1
     }
@@ -57,17 +56,7 @@ struct StoryBrain {
         return story[currentStory].choice2
     }
     
-//    func nextStory(choice : String) -> Int {
-//
-//        if choice == story[currentStory].choice1 {
-//            return story[currentStory].choice1Destination
-//        } else {
-//            return story[currentStory].choice1Destination
-//        }
-//    }
-    
     mutating func nextStory(choice: String) {
-        
         switch choice {
         case story[currentStory].choice1:
             currentStory = story[currentStory].choice1Destination
@@ -76,13 +65,5 @@ struct StoryBrain {
         default:
             currentStory = 0
         }
-        
-//        if choice == story[currentStory].choice1 {
-//            currentStory = story[currentStory].choice1Destination
-//        } else {
-//            currentStory = story[currentStory].choice1Destination
-//        }
     }
-    
-    
 }

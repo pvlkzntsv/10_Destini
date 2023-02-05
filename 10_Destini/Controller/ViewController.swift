@@ -66,7 +66,6 @@ class ViewController: UIViewController {
         return button
     }()
     
-    
     func setupUI() {
         textView.addSubview(storyTextLabel)
         view.addSubview(imageView)
