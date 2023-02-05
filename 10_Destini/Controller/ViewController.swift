@@ -40,18 +40,29 @@ class ViewController: UIViewController {
     }()
     
     private lazy var choice1Butoon: UIButton = {
+        var config = UIButton.Configuration.filled()
+        config.buttonSize = .medium
+        config.cornerStyle = .capsule
+        config.baseBackgroundColor = .purple
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.backgroundColor = .purple
         button.addAction(UIAction {_ in self.choiceButtonPressed(button)}, for: .touchUpInside)
+        button.titleLabel?.font = UIFont(name: "Helvetica", size: 10)
+        button.configuration = config
         return button
     }()
     
     private lazy var choice2Butoon: UIButton = {
+        var config = UIButton.Configuration.filled()
+        config.buttonSize = .medium
+        config.cornerStyle = .capsule
+        config.baseBackgroundColor = .systemPink
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.backgroundColor = .systemPink
         button.addAction(UIAction {_ in self.choiceButtonPressed(button)}, for: .touchUpInside)
+        button.titleLabel?.font = UIFont(name: "Helvetica", size: 15)
+        button.configuration = config
+        
         return button
     }()
     
@@ -88,12 +99,8 @@ class ViewController: UIViewController {
             choice2Butoon.widthAnchor.constraint(equalTo: view.safeAreaLayoutGuide.widthAnchor),
             choice2Butoon.topAnchor.constraint(equalTo: choice1Butoon.bottomAnchor, constant: 5),
             choice2Butoon.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
-            
-            
-        ]
-        )
+        ])
     }
-    
     
     func choiceButtonPressed(_ sender: UIButton) {
         guard let userChoice = sender.titleLabel?.text else {return}
@@ -105,7 +112,6 @@ class ViewController: UIViewController {
         storyTextLabel.text = storyBrain.getStoryTitle()
         choice1Butoon.setTitle(storyBrain.getChoice1(), for: .normal)
         choice2Butoon.setTitle(storyBrain.getChoice2(), for: .normal)
-        
     }
 
     override func viewDidLoad() {
@@ -113,7 +119,5 @@ class ViewController: UIViewController {
         setupUI()
         updateUI()
     }
-
-
 }
 
